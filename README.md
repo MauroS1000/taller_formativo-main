@@ -1,67 +1,44 @@
-# Taller Formativo: Implementación de Patrones de Diseño en Aplicaciones de Gestión de Automóviles
+# Taller Formativo: Aplicación de Patrones de Diseño en Sistemas de Gestión de Vehículos
 
-## Descripción General
-Este proyecto tiene como objetivo implementar patrones de diseño, principios SOLID y mejores prácticas en un sistema de gestión de vehículos. La finalidad es cumplir con los requerimientos definidos para garantizar una solución escalable y de alta calidad.
+## Introducción
+Este proyecto tiene como propósito aplicar patrones de diseño, principios SOLID y mejores prácticas en el desarrollo de un sistema de gestión de automóviles. Su objetivo es ofrecer una solución flexible, escalable y de alta calidad que cumpla con los requisitos definidos.
 
-En esta aplicación, se incluyen las siguientes funcionalidades clave:
+Las funcionalidades clave de la aplicación incluyen:
 
-- Métodos para agregar vehículos de forma eficiente.
-- Un entorno de prueba independiente de la base de datos.
-- Propiedades por defecto para vehículos, optimizando la capacidad de adaptación a futuros cambios.
-- Un Factory Method para la creación dinámica de nuevos modelos de vehículos.
-
----
-
-## Requerimientos del Proyecto
-
-### Problemas Identificados
-1. **Métodos de agregar vehículos**:
-   - Los métodos actuales en la página principal no funcionan correctamente y necesitan ser rediseñados.
-   - El patrón de repositorio utilizado requiere ajustes para mejorar su funcionalidad.
-
-2. **Ausencia de base de datos**:
-   - Actualmente no hay un esquema de base de datos disponible, por lo que se necesita una solución temporal que permita realizar pruebas sin almacenamiento persistente.
-
-3. **Propiedades por defecto**:
-   - Es necesario que el modelo de vehículo incluya 20 propiedades por defecto, además del año actual.
-   - La implementación debe ser extensible para facilitar cambios en futuros sprints.
-
-4. **Adición de nuevos modelos de vehículos**:
-   - Se solicita la incorporación de un nuevo modelo: Escape (marca Ford, color rojo).
-   - La solución debe ser lo suficientemente flexible para soportar la creación de futuros modelos.
+- Métodos optimizados para el registro de nuevos vehículos.
+- Un entorno de pruebas funcional sin necesidad de base de datos.
+- Propiedades predefinidas en los modelos de vehículos, permitiendo adaptabilidad a futuras modificaciones.
+- Implementación de un Factory Method para facilitar la creación de nuevos modelos de automóviles.
 
 ---
 
-## Solución Propuesta
-Para abordar los problemas identificados, se implementaron los siguientes patrones de diseño:
+## Requerimientos y Problemas Detectados
 
-### 1. **Patrón Singleton**
-- **Propósito**: Proveer un repositorio temporal único para gestionar vehículos mientras se desarrolla la base de datos.
-- **Implementación**: Se creó la clase `MyVehiclesRepository` dentro de la carpeta `Repositories`.
+### 1. Registro de vehículos
+   - Los métodos actuales presentan fallos en la página principal y requieren un rediseño.
+   - El patrón de repositorio empleado necesita mejoras para optimizar su rendimiento.
 
-### 2. **Patrón Builder**
-- **Propósito**: Simplificar la construcción de vehículos con propiedades por defecto, incluyendo el año actual.
-- **Implementación**: Se desarrolló la clase `CarModelBuilder` ubicada en la carpeta `ModelBuilder`.
+### 2. Falta de base de datos
+   - No existe una base de datos implementada, por lo que se requiere una alternativa temporal que permita realizar pruebas sin almacenamiento persistente.
 
-### 3. **Patrón Factory Method**
-- **Propósito**: Estandarizar y simplificar la creación de nuevos modelos de vehículos.
-- **Implementación**: Se añadieron las clases `FordEscapeFactory`, `FordExplorerFactory` y `FordMustangFactory` en la carpeta `Factories`.
+### 3. Propiedades predefinidas
+   - Es necesario que cada modelo de vehículo tenga 20 propiedades preconfiguradas, incluyendo el año actual.
+   - La implementación debe permitir su ampliación en futuras actualizaciones del sistema.
 
----
+### 4. Incorporación de nuevos modelos
+   - Se debe agregar el modelo *Escape* (marca Ford, color rojo).
+   - La solución debe ser lo suficientemente flexible para permitir la creación de modelos adicionales en el futuro.
 
-## Justificación de los Patrones Utilizados
-- **Builder**: Este patrón permite manejar de manera flexible y extensible las propiedades por defecto de los vehículos, facilitando modificaciones futuras.
-- **Factory Method**: Asegura que la creación de nuevos modelos siga un proceso estándar, reduciendo la complejidad del código.
-- **Singleton**: Brinda una solución temporal para el manejo de datos sin duplicar instancias, ideal para suplir la falta de una base de datos en esta etapa.
 
 ---
 
-## Pasos para Ejecutar el Proyecto
+---
+
+## Guía de Uso
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/EmilioAMVs/Taller_Formativo_Mejores_Practicas.git
-cd Taller_Formativo_Mejores_Practicas
+git clone https://github.com/MauroS1000/taller_formativo-main.git
 ```
 
 ### 2. Instalar Dependencias
@@ -81,14 +58,15 @@ dotnet test
 
 ---
 
-## Estructura del Proyecto
-- **Repositories**: Contiene la implementación del patrón Singleton para el repositorio de vehículos.
-- **ModelBuilder**: Incluye la clase `CarModelBuilder` para la construcción flexible de vehículos.
-- **Factories**: Define las fábricas específicas para la creación de modelos de vehículos, como `FordEscapeFactory`.
+## Organización del Proyecto
+- **Repositories**: Contiene la implementación del patrón Singleton para la administración de vehículos.
+- **ModelBuilder**: Incluye la clase `CarModelBuilder` encargada de la construcción estructurada de modelos de automóviles.
+- **Factories**: Contiene las fábricas para la creación de modelos específicos, como `FordEscapeFactory`.
 
 ---
 
-## Notas Adicionales
-Este proyecto está diseñado para ser fácilmente escalable y adaptable a futuros cambios. Al implementar principios SOLID y patrones de diseño, se garantiza un código limpio y mantenible.
+## Consideraciones Finales
+Este proyecto ha sido diseñado con un enfoque en escalabilidad y mantenibilidad. Gracias a la aplicación de principios SOLID y patrones de diseño, se garantiza un código limpio y organizado que facilita futuras expansiones y mejoras.
 
-¡Gracias por explorar este taller formativo! Si tienes alguna pregunta o sugerencia, no dudes en contribuir al repositorio.
+Agradecemos tu interés en este taller formativo. ¡Si tienes preguntas o sugerencias, no dudes en contribuir al repositorio!
+
